@@ -1,0 +1,15 @@
+.header {
+  background: #495e57;
+
+  padding: 25px 0;
+}
+.header .container {
+  display: flex;
+  justify-content: space-between;
+}
+.header__promo {
+  max-width: 450px;
+}
+.header__lead-text {
+  max-width: 250px;
+}
