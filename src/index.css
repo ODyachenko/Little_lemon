@@ -164,21 +164,30 @@ table {
   border-collapse: collapse;
   border-spacing: 0;
 }
+img {
+  display: block;
+  max-width: 100%;
+}
 body {
   font-family: Karla, Arial, Helvetica, sans-serif;
   font-size: 16px;
   line-height: 1.2;
   color: #333;
 }
+.block {
+  padding: 25px 0;
+}
 .container {
-  max-width: 1440px;
+  /* max-width: 1440px; */
+  max-width: 1040px;
   padding: 0 25px;
   margin: 0 auto;
 }
 
 .title {
   font-family: 'Markazi Text';
-  font-size: 64px;
+  font-size: 38px;
+  line-height: 1;
   font-weight: 500;
   color: #f4ce14;
 }
@@ -196,4 +205,18 @@ body {
   font-size: 18px;
   font-weight: 500;
   color: #edefee;
+}
+
+@media (min-width: 768px) {
+  .title {
+    font-size: 64px;
+  }
+  .block {
+    padding: 40px 0;
+  }
+}
+@media (min-width: 1024px) {
+  .block {
+    padding: 60px 0;
+  }
 }

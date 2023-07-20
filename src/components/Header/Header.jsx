@@ -4,7 +4,7 @@ import './style.css';
 
 function Header() {
   return (
-    <header className="header">
+    <header className="header block">
       <div className="container">
         <div className="header__content">
           <h1 className="header__title title">Little Lemon</h1>
@@ -13,7 +13,7 @@ function Header() {
             We are a family owned Mediterranean restaurant, focused on
             traditional recipes served with a modern twist
           </h3>
-          <Button value="Reserve a Table" />
+          <Button className="header__btn" value="Reserve a Table" />
         </div>
         <img className="header__promo" src={promo} alt="promo" />
       </div>

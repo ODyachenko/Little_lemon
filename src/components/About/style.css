@@ -1,0 +1,40 @@
+.about {
+  background: #495e57;
+}
+.about__content {
+  max-width: 250px;
+  margin: 0 auto;
+}
+.about__promo {
+  width: 100%;
+  max-width: 250px;
+  border-radius: 20px;
+
+  margin: 0 auto;
+}
+.about__subtitle {
+  margin-bottom: 15px;
+}
+.about__lead-text {
+  max-width: 250px;
+  margin-bottom: 15px;
+}
+.about__btn {
+  margin-bottom: 25px;
+}
+
+@media (min-width: 640px) {
+  .about .container {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+  }
+  .about__content {
+    max-width: 100%;
+    margin: 0;
+  }
+  .about__promo {
+    max-width: 300px;
+    margin: 0;
+  }
+}

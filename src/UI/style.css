@@ -1,0 +1,16 @@
+.primary-btn {
+  all: unset;
+  display: block;
+  width: 100%;
+  max-width: 185px;
+  font-family: inherit;
+  font-size: 18px;
+  font-weight: 700;
+  text-align: center;
+  background: #f4ce14;
+  border-radius: 15px;
+  cursor: pointer;
+
+  padding: 15px 30px;
+  margin-bottom: 25px;
+}

@@ -3,9 +3,12 @@ import './style.css';
 
 function Nav() {
   return (
-    <nav className="nav">
+    <nav className="nav block">
       <div className="container">
         <img src={logo} alt="Logo" />
+        <button className="nav__burger burger">
+          <span className="burger__item"></span>
+        </button>
         <ul className="nav__list">
           <li>
             <a className="nav__list-link" href="/">

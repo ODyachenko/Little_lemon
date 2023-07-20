@@ -11,8 +11,8 @@ function App() {
       <Nav />
       <Header />
       <Menu />
-      <Testimonials />
       <About />
+      <Testimonials />
       <Footer />
     </main>
   );
