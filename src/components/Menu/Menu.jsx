@@ -1,5 +1,4 @@
 import React from 'react';
-import Button from '../../UI/Button';
 import salad from '../../assets/img/greek_salad.jpg';
 import bruscheta from '../../assets/img/bruschetta.jpg';
 import desert from '../../assets/img/lemon_dessert.jpg';
@@ -11,7 +10,7 @@ function Menu() {
       <div className="container">
         <div className="menu__inner">
           <h2 className="menu__title title">This weeks specials!</h2>
-          <Button value="Online Menu" />
+          <button className="menu__btn primary-btn">Online Menu</button>
         </div>
         <ul className="menu__list">
           <li className="menu__list-item card">

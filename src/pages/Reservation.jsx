@@ -1,13 +1,15 @@
 import Nav from '../components/Navbar/Nav';
 import Footer from '../components/Footer/Footer';
+import Form from '../components/Form/Form';
 
-function About() {
+function Reservation() {
   return (
     <>
       <Nav />
+      <Form />
       <Footer />
     </>
   );
 }
 
-export default About;
+export default Reservation;

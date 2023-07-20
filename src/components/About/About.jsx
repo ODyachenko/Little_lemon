@@ -1,4 +1,3 @@
-import Button from '../../UI/Button';
 import about1 from '../../assets/img/about1.jpg';
 import about2 from '../../assets/img/about2.jpg';
 import './style.css';
@@ -14,11 +13,12 @@ function About() {
             We are a family owned Mediterranean restaurant, focused on
             traditional recipes served with a modern twist
           </p>
-          <Button value="Reserve a Table" />
+          <button className="about__btn primary-btn">Reserve a Table</button>
         </div>
-        <div className="about__promo"></div>
-        <img className="about__promo-img" src={about1} alt="Chefs foto" />
-        <img className="about__promo-img" src={about2} alt="Chefs foto" />
+        <div className="about__promo">
+          <img className="about__promo-img" src={about1} alt="Chefs foto" />
+          <img className="about__promo-img" src={about2} alt="Chefs foto" />
+        </div>
       </div>
     </section>
   );
