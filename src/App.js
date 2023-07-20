@@ -1,20 +1,15 @@
-import Nav from './components/Navbar/Nav';
-import Header from './components/Header/Header';
-import Menu from './components/Menu/Menu';
-import Testimonials from './components/Testimonials/Testimonials';
-import About from './components/About/About';
-import Footer from './components/Footer/Footer';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import About from './pages/About';
+import Homepage from './pages/Homepage';
 
 function App() {
   return (
-    <main className="main">
-      <Nav />
-      <Header />
-      <Menu />
-      <About />
-      <Testimonials />
-      <Footer />
-    </main>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Homepage />} />
+        <Route path="/about" element={<About />} />
+      </Routes>
+    </BrowserRouter>
   );
 }
 

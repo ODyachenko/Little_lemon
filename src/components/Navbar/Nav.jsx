@@ -1,3 +1,4 @@
+import { NavLink } from 'react-router-dom';
 import logo from '../../assets/img/logo.svg';
 import './style.css';
 
@@ -11,14 +12,14 @@ function Nav() {
         </button>
         <ul className="nav__list">
           <li>
-            <a className="nav__list-link" href="/">
+            <NavLink to="/" className="nav__list-link">
               Home
-            </a>
+            </NavLink>
           </li>
           <li>
-            <a className="nav__list-link" href="/">
+            <NavLink to="/about" className="nav__list-link">
               About
-            </a>
+            </NavLink>
           </li>
           <li>
             <a className="nav__list-link" href="/">
