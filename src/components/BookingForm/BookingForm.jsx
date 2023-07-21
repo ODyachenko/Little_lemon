@@ -1,25 +1,32 @@
 import { useState } from 'react';
 import './style.css';
 
-function Form() {
-  const [count, setCount] = useState(1);
+function BookingForm({ availableTimes, setAvailableTimes }) {
   const [formData, setFormData] = useState({
     name: '',
     email: '',
     date: '',
     time: '',
-    ocasion: '',
+    ocasion: 'ocasion',
     visiters: 1,
   });
 
-  function decrementCount() {
-    if (count > 1) {
-      setCount(count - 1);
-    }
-  }
+  console.log(availableTimes);
 
   function onChangeFieldHandler(event) {
     setFormData({ ...formData, [event.target.name]: event.target.value });
+  }
+
+  function incrementVisitersCount() {
+    setFormData({ ...formData, visiters: formData.visiters + 1 });
+  }
+  function decrementVisitersCount() {
+    formData.visiters > 1 &&
+      setFormData({ ...formData, visiters: formData.visiters - 1 });
+  }
+
+  function onSubmitHandler(event) {
+    event.preventDefault();
     console.log(formData);
   }
 
@@ -27,7 +34,7 @@ function Form() {
     <section className="reservation block">
       <div className="container">
         <h2 className="reservation__title title">Reservation details</h2>
-        <form action="/" className="reservation__form form">
+        <form className="reservation__form form" onSubmit={onSubmitHandler}>
           <label className="form__field">
             <span>Name</span>
             <input
@@ -62,42 +69,51 @@ function Form() {
           </label>
           <label className="form__field">
             <span>Choose time</span>
-            <input
-              type="time"
+            <select
+              className="form__select"
               name="time"
-              value={formData.time}
-              onChange={onChangeFieldHandler}
-              required
-            />
+              // value={availableTimes}
+              onChange={(event) => setAvailableTimes(event.target.value)}
+            >
+              {availableTimes.map((time) => {
+                return <option key={time}>{time}</option>;
+              })}
+            </select>
           </label>
-          <select
-            name="ocasion"
-            value={formData.ocasion}
-            onChange={onChangeFieldHandler}
-            className="form__select"
-          >
-            <option>Ocasion</option>
-            <option>Birthday</option>
-            <option>Engagement</option>
-            <option>Aniversary</option>
-          </select>
-          <select className="form__select">
-            <option value="">Inside</option>
-            <option value="">Outside</option>
-          </select>
+          <label className="form__field">
+            <span>Ocasion</span>
+            <select
+              name="ocasion"
+              value={formData.ocasion}
+              onChange={onChangeFieldHandler}
+              className="form__select"
+            >
+              <option>Birthday</option>
+              <option>Engagement</option>
+              <option>Aniversary</option>
+            </select>
+          </label>
+          <label className="form__field">
+            <span>Location</span>
+            <select className="form__select">
+              <option value="">Inside</option>
+              <option value="">Outside</option>
+            </select>
+          </label>
           <div className="form__visiters">
             <span>Table for</span>
             <div className="form__count">
               <button
-                onClick={decrementCount}
+                onClick={decrementVisitersCount}
                 type="button"
+                disabled={formData.visiters === 1}
                 className="form__count-btn"
               >
                 -
               </button>
-              <span className="form__count-num">{count}</span>
+              <span className="form__count-num">{formData.visiters}</span>
               <button
-                onClick={() => setCount(count + 1)}
+                onClick={incrementVisitersCount}
                 type="button"
                 className="form__count-btn"
               >
@@ -114,4 +130,4 @@ function Form() {
   );
 }
 
-export default Form;
+export default BookingForm;
