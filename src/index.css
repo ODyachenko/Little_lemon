@@ -216,11 +216,13 @@ body.hide {
   font-family: inherit;
   font-size: 16px;
   font-weight: 700;
+  color: inherit;
   text-align: center;
   background: #f4ce14;
   border-radius: 15px;
   border: none;
   cursor: pointer;
+  text-decoration: none;
   transition: all 0.3s ease;
 
   padding: 10px 20px;

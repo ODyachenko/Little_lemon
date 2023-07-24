@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import promo from '../../assets/img/promo.jpg';
 import './style.css';
 
@@ -12,7 +13,9 @@ function Header() {
             We are a family owned Mediterranean restaurant, focused on
             traditional recipes served with a modern twist
           </h3>
-          <button className="header__btn primary-btn">Reserve a Table</button>
+          <Link to="/reservation" className="header__btn primary-btn">
+            Reserve a Table
+          </Link>
         </div>
         <img className="header__promo" src={promo} alt="promo" />
       </div>

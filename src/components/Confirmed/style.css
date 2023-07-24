@@ -1,0 +1,40 @@
+.confirmed-booking {
+  height: calc(100vh - 90px);
+  text-align: center;
+  background: #495e57;
+}
+.confirmed-booking .container {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+}
+.confirmed-booking svg {
+  margin-bottom: 20px;
+}
+.confirmed-booking__title {
+  color: #f4ce14;
+  margin-bottom: 30px;
+}
+.confirmed-booking__text {
+  max-width: 540px;
+  font-size: 18px;
+  line-height: 1.5;
+  font-weight: 500;
+  color: #edefee;
+
+  margin: 0 auto;
+}
+.confirmed-booking__btn.primary-btn {
+  max-width: 270px;
+}
+
+@media (min-width: 768px) {
+  .confirmed-booking {
+    height: 100vh;
+  }
+  .confirmed-booking.block {
+    padding-top: 150px;
+  }
+}

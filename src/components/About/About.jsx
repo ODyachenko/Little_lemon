@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import about1 from '../../assets/img/about1.jpg';
 import about2 from '../../assets/img/about2.jpg';
 import './style.css';
@@ -13,7 +14,9 @@ function About() {
             We are a family owned Mediterranean restaurant, focused on
             traditional recipes served with a modern twist
           </p>
-          <button className="about__btn primary-btn">Reserve a Table</button>
+          <Link to="/reservation" className="about__btn primary-btn">
+            Reserve a Table
+          </Link>
         </div>
         <div className="about__promo">
           <img className="about__promo-img" src={about1} alt="Chefs foto" />

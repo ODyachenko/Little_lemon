@@ -3,31 +3,34 @@ import Nav from '../components/Navbar/Nav';
 import Footer from '../components/Footer/Footer';
 import BookingForm from '../components/BookingForm/BookingForm';
 
-// const reducer = (state, action) => {
-//   return state
-// }
-
 function BookingPage() {
-  const initializeTimes = [
-    '9:00',
-    '10:00',
-    '11:00',
-    '12:00',
-    '13:00',
-    '14:00',
-    '15:00',
-    '16:00',
-    '17:00',
-    '18:00',
-  ];
   const [availableTimes, setAvailableTimes] = useReducer(
     updateTimes,
-    initializeTimes
+    initializeTimes()
   );
 
   function updateTimes(availableTimes, action) {
     return availableTimes;
   }
+
+  function initializeTimes() {
+    const timesArr = [
+      '9:00',
+      '10:00',
+      '11:00',
+      '12:00',
+      '13:00',
+      '14:00',
+      '15:00',
+      '16:00',
+      '17:00',
+      '18:00',
+    ];
+
+    return timesArr;
+  }
+
+  // console.log(fetchAPI('12.04.2023'));
 
   return (
     <>

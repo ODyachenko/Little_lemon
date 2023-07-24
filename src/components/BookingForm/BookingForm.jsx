@@ -1,17 +1,17 @@
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import './style.css';
 
 function BookingForm({ availableTimes, setAvailableTimes }) {
+  const navigate = useNavigate();
   const [formData, setFormData] = useState({
     name: '',
     email: '',
     date: '',
-    time: '',
-    ocasion: 'ocasion',
+    time: availableTimes[0],
+    ocasion: 'Birthday',
     visiters: 1,
   });
-
-  console.log(availableTimes);
 
   function onChangeFieldHandler(event) {
     setFormData({ ...formData, [event.target.name]: event.target.value });
@@ -27,6 +27,8 @@ function BookingForm({ availableTimes, setAvailableTimes }) {
 
   function onSubmitHandler(event) {
     event.preventDefault();
+    // submitAPI(formData);
+    navigate('/confirmed-booking');
     console.log(formData);
   }
 
@@ -72,11 +74,14 @@ function BookingForm({ availableTimes, setAvailableTimes }) {
             <select
               className="form__select"
               name="time"
-              // value={availableTimes}
-              onChange={(event) => setAvailableTimes(event.target.value)}
+              onChange={onChangeFieldHandler}
             >
               {availableTimes.map((time) => {
-                return <option key={time}>{time}</option>;
+                return (
+                  <option key={time} value={time}>
+                    {time}
+                  </option>
+                );
               })}
             </select>
           </label>
