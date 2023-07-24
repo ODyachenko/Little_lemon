@@ -3,7 +3,7 @@ import { NavLink } from 'react-router-dom';
 import logo from '../../assets/img/logo.svg';
 import './style.css';
 
-const links = ['Home', 'Menu', 'About', 'Testimonials', 'Contacts'];
+// const links = ['Home', 'Menu', 'About', 'Testimonials', 'Contacts'];
 
 function Nav() {
   const [isShow, setIsShow] = useState(false);

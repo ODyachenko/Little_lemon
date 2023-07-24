@@ -1,9 +1,49 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
+import axios from 'axios';
 import './style.css';
 
-function BookingForm({ availableTimes, setAvailableTimes }) {
+const initializeTimes = [
+  '9:00',
+  '10:00',
+  '11:00',
+  '12:00',
+  '13:00',
+  '14:00',
+  '15:00',
+  '16:00',
+  '17:00',
+  '18:00',
+];
+
+function BookingForm() {
+  // const [availableTimes, setAvailableTimes] = useReducer(
+  //   updateTimes,
+  //   initializeTimes()
+  // );
+  const [availableTimes, setAvailableTimes] = useState(initializeTimes);
   const navigate = useNavigate();
+
+  // function updateTimes(availableTimes, action) {
+  //   return availableTimes;
+  // }
+
+  // function initializeTimes() {
+  //   const timesArr = [
+  //     '9:00',
+  //     '10:00',
+  //     '11:00',
+  //     '12:00',
+  //     '13:00',
+  //     '14:00',
+  //     '15:00',
+  //     '16:00',
+  //     '17:00',
+  //     '18:00',
+  //   ];
+
+  //   return timesArr;
+  // }
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -12,6 +52,14 @@ function BookingForm({ availableTimes, setAvailableTimes }) {
     ocasion: 'Birthday',
     visiters: 1,
   });
+
+  useEffect(() => {
+    if (formData.date) {
+      axios('https://64be2b4d2320b36433c826ac.mockapi.io/avialableTimes')
+        .then((res) => setAvailableTimes(res.data))
+        .catch((err) => console.error('Error:', err.message));
+    }
+  }, [formData.date]);
 
   function onChangeFieldHandler(event) {
     setFormData({ ...formData, [event.target.name]: event.target.value });
