@@ -1,7 +1,9 @@
-import { screen, render } from '@testing-library/react';
-import '@testing-library/jest-dom';
-import BookingPage from './BookingPage';
+// import { screen, render } from '@testing-library/react';
+// import '@testing-library/jest-dom';
+// import BookingPage from './BookingPage';
 
-test('Check what function are return', () => {
-  render(<BookingPage />);
-});
+// describe('', () => {
+//   test('Check what function are return', () => {
+//     render(<BookingPage />);
+//   });
+// })

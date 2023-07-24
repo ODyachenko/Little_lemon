@@ -66,6 +66,10 @@
   border: 2px solid #333;
   border-radius: 50%;
 }
+.form__count-btn:disabled {
+  color: #a6a6a6;
+  border-color: #a6a6a6;
+}
 .form__count-num {
   font-size: 45px;
   padding: 0 10px;
