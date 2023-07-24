@@ -1,31 +1,23 @@
 import { useEffect, useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import logo from '../../assets/img/logo.svg';
+import { fixedNavbar } from '../../utils/fixedNavbar';
 import './style.css';
-
-// const links = ['Home', 'Menu', 'About', 'Testimonials', 'Contacts'];
 
 function Nav() {
   const [isShow, setIsShow] = useState(false);
 
   useEffect(() => {
-    document.body.classList.toggle('hide');
+    isShow
+      ? document.body.classList.add('hide')
+      : document.body.classList.remove('hide');
   }, [isShow]);
 
   // Fixed navbar
   useEffect(() => {
-    let prevScrollpos = window.pageYOffset;
-
-    window.onscroll = function () {
-      const currentScrollPos = window.pageYOffset;
-
-      if (prevScrollpos > currentScrollPos) {
-        document.querySelector('.nav').style.top = '0';
-      } else {
-        document.querySelector('.nav').style.top = '-90px';
-      }
-      prevScrollpos = currentScrollPos;
-    };
+    if (document.documentElement.clientWidth > 768) {
+      fixedNavbar();
+    }
   }, []);
 
   return (
@@ -42,15 +34,6 @@ function Nav() {
         </div>
         <span className={`nav__overflow ${isShow ? 'show' : ''}`}></span>
         <ul className={`nav__list ${isShow ? 'show' : ''}`}>
-          {/* {links.map((link) => {
-            return (
-              <li key={link}>
-                <a href={`#${link}`} className="nav__list-link">
-                  {link}
-                </a>
-              </li>
-            );
-          })} */}
           <li>
             <NavLink to="/" className="nav__list-link">
               Home

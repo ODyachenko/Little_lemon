@@ -1,6 +1,5 @@
 import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import axios from 'axios';
 import './style.css';
 
 const initializeTimes = [
@@ -17,33 +16,9 @@ const initializeTimes = [
 ];
 
 function BookingForm() {
-  // const [availableTimes, setAvailableTimes] = useReducer(
-  //   updateTimes,
-  //   initializeTimes()
-  // );
   const [availableTimes, setAvailableTimes] = useState(initializeTimes);
   const navigate = useNavigate();
 
-  // function updateTimes(availableTimes, action) {
-  //   return availableTimes;
-  // }
-
-  // function initializeTimes() {
-  //   const timesArr = [
-  //     '9:00',
-  //     '10:00',
-  //     '11:00',
-  //     '12:00',
-  //     '13:00',
-  //     '14:00',
-  //     '15:00',
-  //     '16:00',
-  //     '17:00',
-  //     '18:00',
-  //   ];
-
-  //   return timesArr;
-  // }
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -55,8 +30,9 @@ function BookingForm() {
 
   useEffect(() => {
     if (formData.date) {
-      axios('https://64be2b4d2320b36433c826ac.mockapi.io/avialableTimes')
-        .then((res) => setAvailableTimes(res.data))
+      fetch('https://64be2b4d2320b36433c826ac.mockapi.io/avialableTimes')
+        .then((res) => res.json())
+        .then((data) => setAvailableTimes(data))
         .catch((err) => console.error('Error:', err.message));
     }
   }, [formData.date]);
@@ -75,9 +51,7 @@ function BookingForm() {
 
   function onSubmitHandler(event) {
     event.preventDefault();
-    // submitAPI(formData);
     navigate('/confirmed-booking');
-    console.log(formData);
   }
 
   return (
@@ -85,7 +59,11 @@ function BookingForm() {
       <div className="container">
         <h2 className="reservation__title title">Reservation details</h2>
         <form className="reservation__form form" onSubmit={onSubmitHandler}>
-          <label className="form__field">
+          <label
+            className="form__field"
+            onBlur={(event) => event.target.classList.add('active')}
+            aria-label="On click"
+          >
             <span>Name</span>
             <input
               type="text"
@@ -97,7 +75,11 @@ function BookingForm() {
               required
             />
           </label>
-          <label className="form__field">
+          <label
+            className="form__field"
+            onBlur={(event) => event.target.classList.add('active')}
+            aria-label="On click"
+          >
             <span>Email</span>
             <input
               type="email"
@@ -107,7 +89,11 @@ function BookingForm() {
               required
             />
           </label>
-          <label className="form__field">
+          <label
+            className="form__field"
+            onBlur={(event) => event.target.classList.add('active')}
+            aria-label="On click"
+          >
             <span>Choose date</span>
             <input
               type="date"
@@ -117,7 +103,7 @@ function BookingForm() {
               required
             />
           </label>
-          <label className="form__field">
+          <label className="form__field" aria-label="On click">
             <span>Choose time</span>
             <select
               className="form__select"
@@ -133,7 +119,7 @@ function BookingForm() {
               })}
             </select>
           </label>
-          <label className="form__field">
+          <label className="form__field" aria-label="On click">
             <span>Ocasion</span>
             <select
               name="ocasion"
@@ -146,7 +132,7 @@ function BookingForm() {
               <option>Aniversary</option>
             </select>
           </label>
-          <label className="form__field">
+          <label className="form__field" aria-label="On click">
             <span>Location</span>
             <select className="form__select">
               <option value="">Inside</option>
